@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+<div class="contenido">
 	<main role="main">
 		<!-- section -->
 		<section>
@@ -41,5 +41,6 @@
 	</main>
 
 <?php get_sidebar(); ?>
+</div>
 
 <?php get_footer(); ?>

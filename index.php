@@ -1,19 +1,15 @@
 <?php get_header(); ?>
 
-	<main role="main">
+	<div class="contenido">
+		<div class="wrapper-home">
 		<!-- section -->
 		<section>
 
-			<h1><?php _e( 'Latest Posts', 'html5blank' ); ?></h1>
-
-			<?php get_template_part('loop'); ?>
-
-			<?php get_template_part('pagination'); ?>
+			<h3>Esto es una prueba</h3>
 
 		</section>
 		<!-- /section -->
-	</main>
-
-<?php get_sidebar(); ?>
+		</div>
+	</div>
 
 <?php get_footer(); ?>
