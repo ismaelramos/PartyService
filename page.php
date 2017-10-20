@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 <div class="contenido">
+	<div class="wrapper-cont-sidebar">
+
 	<main role="main">
 		<!-- section -->
 		<section>
@@ -41,6 +43,7 @@
 	</main>
 
 <?php get_sidebar(); ?>
+	</div>
 </div>
 
 <?php get_footer(); ?>

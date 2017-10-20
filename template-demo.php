@@ -1,5 +1,8 @@
 <?php /* Template Name: Demo Page Template */ get_header(); ?>
 
+<div class="contenido home-page">
+	<div class="wrapper-cont-sidebar">
+
 	<main role="main">
 		<!-- section -->
 		<section>
@@ -41,5 +44,7 @@
 	</main>
 
 <?php get_sidebar(); ?>
+	</div>
+</div>
 
 <?php get_footer(); ?>

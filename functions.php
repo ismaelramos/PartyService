@@ -31,6 +31,7 @@ if (function_exists('add_theme_support'))
     add_image_size('medium', 250, '', true); // Medium Thumbnail
     add_image_size('small', 120, '', true); // Small Thumbnail
     add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+    add_image_size('combo', 400, 400, true);
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
     /*add_theme_support('custom-background', array(
@@ -347,6 +348,7 @@ add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comment
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
 add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
+add_action('init', 'create_post_type_combos'); // Agregar Custom Post Type combos
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 
@@ -434,6 +436,48 @@ function create_post_type_html5()
     ));
 }
 
+
+
+/******** Custom Post Type COmbos ********/
+function create_post_type_combos()
+{
+    $labels = array(
+        'name'               => _x( 'Combos', 'PartyService' ),
+        'singular_name'      => _x( 'Combo', 'post type singular name', 'PartyService' ),
+        'menu_name'          => _x( 'Combos', 'admin menu', 'PartyService' ),
+        'name_admin_bar'     => _x( 'Combos', 'add new on admin bar', 'PartyService' ),
+        'add_new'            => _x( 'Agregar nuevo', 'book', 'PartyService' ),
+        'add_new_item'       => __( 'Agregar nuevo combo', 'PartyService' ),
+        'new_item'           => __( 'Nuevo combo', 'PartyService' ),
+        'edit_item'          => __( 'Editar combo', 'PartyService' ),
+        'view_item'          => __( 'Ver combo', 'PartyService' ),
+        'all_items'          => __( 'Todos los combos', 'PartyService' ),
+        'search_items'       => __( 'Buscar combos', 'PartyService' ),
+        'parent_item_colon'  => __( 'Padre combos:', 'PartyService' ),
+        'not_found'          => __( 'No se encontraron combos.', 'PartyService' ),
+        'not_found_in_trash' => __( 'No se encontraron combos en la papelera.', 'PartyService' )
+    );
+
+    $args = array(
+        'labels'             => $labels,
+    'description'        => __( 'Descripción.', 'PartyService' ),
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'PartyService' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 6,
+        'supports'           => array( 'title', 'editor', 'thumbnail' ),
+    'taxonomies'          => array( 'category' ),
+    );
+
+    register_post_type( 'combos', $args );
+
+}
 /*------------------------------------*\
 	ShortCode Functions
 \*------------------------------------*/
